@@ -4,17 +4,18 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="login.css">
     <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
+    <script src="login.js" defer></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
 </head>
 <body>
     <main>
         <h1>SCA</h1>
-        <form action="">
+        <form>
             <h2>Login</h2>
-            <input type="text" placeholder="Usuário">
-            <input type="password" placeholder="Senha">
-            <input type="submit" value="Entrar">
+            <input id="usuario" type="text" placeholder="Usuário">
+            <input id="senha" type="password" placeholder="Senha">
+            <input type="submit" value="Entrar" onclick="Logar(); return false">
         </form>
     </main>
 </body>
