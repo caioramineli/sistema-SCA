@@ -50,20 +50,69 @@ main form input {
     padding: 10px;
     color: white;
     width: 300px;
-    font-size: 1rem; 
+    font-size: 1rem;
 }
 
-main form input:last-child {
+#entrar {
     background-color: #1335ac;
-    margin-top: 8px;
-    margin-bottom: 2rem;
-    width: 250px;
+    margin-top: 12px;
+    width: 240px;
     font-size: 18px;
     font-weight: bold;
     padding: 9px;
+    margin-bottom: 2rem;
+    z-index: 2;
 }
 
-main form input:last-child:hover {
+#entrar:hover {
     background-color: rgb(0, 0, 165);
     transition: 0.4s;
+}
+
+main form span {
+    position: absolute;
+    font-size: 15px; 
+    top: 288px;
+    color: rgb(200, 0, 0);
+    display: none;
+}
+
+#icone {
+    background: url('../images/olho.png');
+    position: absolute;
+    top: 251px;
+    margin-left: 255px;
+    background-size: cover;
+    width: 26px;
+    height: 26px;
+    cursor: pointer;
+    background-color:#2d3f5a;
+}
+
+#icone.hide {
+    background: url('../images/ocultar.png');
+    background-size: cover;
+    background-color:#2d3f5a;
+}
+
+#loading {
+    margin-top: 11px;
+    position: relative;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 8px solid #1335ac;
+    border-top: 8px solid transparent;
+    animation: loading 1s linear infinite;
+    display: none;
+    margin-bottom: 2rem;
+}
+
+@keyframes loading {
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
 }
