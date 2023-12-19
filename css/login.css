@@ -74,6 +74,7 @@ main form span {
     font-size: 15px; 
     top: 288px;
     color: rgb(200, 0, 0);
+    font-weight: bold;
     display: none;
 }
 

@@ -28,8 +28,6 @@ function Logar(){
     }
 }
 
-
-
 const icone = document.getElementById('icone');
 const password = document.getElementById('senha');
 
