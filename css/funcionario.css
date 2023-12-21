@@ -1,0 +1,121 @@
+* {
+    font-family: Inter;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: #001a41;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+.container-geral {
+    display: flex;
+}
+
+.aba-lateral {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-width: 210px;
+    height: 100vh;
+    background-color: #142847;
+    color: white;
+}
+
+.aba-lateral .usuario {
+    display: flex;
+    align-items: center;
+    column-gap: 15px;
+    margin-top: 15px;
+}
+
+.aba-lateral .usuario img {
+    width: 55px;
+    margin-left: 20px;
+}
+
+.aba-lateral .usuario h1 {
+    font-size: 1.6rem;
+}
+
+.aba-lateral .voltar {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    column-gap: 15px;
+}
+
+.aba-lateral .voltar img {
+    width: 60px;
+    margin-left: 25px;
+}
+
+.aba-lateral .voltar h1 {
+    font-size: 1.6rem;
+}
+
+main {
+    width: 100%;
+    margin-left: 210px;
+    margin-top: 2.5rem;
+}
+
+
+main form {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10vw;
+    row-gap: 5px;
+}
+
+main form label {
+    color: white;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+main form input {
+    max-width: 300px;
+    min-width: 220px;
+    width: 50%;
+    background-color: #1c3355;
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    color: white;
+}
+
+.btns {
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 2rem;
+    row-gap: 1rem;
+}
+
+.btns input, button {
+    background-color: #1335ac;
+    border: none;
+    max-width: 120px;
+    min-width: 120px;
+    padding: 12px;
+    border-radius: 10px;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-bottom: 0px;
+}
+
+.btns input:hover, button:hover {
+    background-color: #1334acbd;
+    transition: 0.3s;
+}
