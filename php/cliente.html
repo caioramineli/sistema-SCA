@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../css/cliente.css">
+    <script src="../js/" defer></script>
+    <link rel="icon" href="../images/s-icon.png" type="image/x-icon">
+    <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tela Inicial</title>
+</head>
+
+<body>
+    <section class="container-geral">
+        <section class="aba-lateral">
+            <div class="usuario">
+                <img src="../images/cliente.svg">
+                <h1>Cliente</h1>
+            </div>
+            <div class="voltar">
+                <a href="../php/tela-inicial.html">
+                    <img src="../images/voltar.png">
+                </a>
+                <a href="../php/tela-inicial.html">
+                    <h1 id="teste">Voltar</h1>
+                </a>
+            </div>
+        </section>
+        <main>
+                <form action="" method="POST">
+                    <label for="nome">Nome</label>
+                    <input type="text" name="nome">
+                    <label for="cpf">CPF</label>
+                    <input type="text" name="cpf">
+                    <label for="endereco">Endereço</label>
+                    <input type="text" name="endereco">
+                    <label for="telefone">Telefone</label>
+                    <input type="text" name="telefone">
+                    <label for="data_nasc">Data de nascimento</label>
+                    <input type="text" name="data_nasc">
+                    <div class="btns">
+                        <input type="submit" value="Registrar">
+                        <button>Cancelar</button>
+                        <button>Consultar</button>
+                    </div>
+                </form>
+        </main>
+    </section>
+</body>
+
+</html>
