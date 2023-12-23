@@ -64,9 +64,8 @@ a {
 main {
     width: 100%;
     margin-left: 210px;
-    margin-top: 2.5rem;
+    margin-top: 1.5rem;
 }
-
 
 main form {
     display: flex;
@@ -79,6 +78,7 @@ main form label {
     color: white;
     font-size: 1.1rem;
     font-weight: bold;
+    margin-top: 1rem;
 }
 
 main form input {
@@ -89,13 +89,20 @@ main form input {
     border: none;
     padding: 10px;
     border-radius: 10px;
-    margin-bottom: 1rem;
+    /* margin-bottom: 1rem; */
     font-size: 1rem;
     color: white;
 }
 
+main form span {
+    color: red;
+    font-size: 14px;
+    margin-left: 3px;
+    display: none;
+}
+
 .btns {
-    margin-top: 10px;
+    margin-top: 2rem;
     display: flex;
     flex-wrap: wrap;
     column-gap: 2rem;

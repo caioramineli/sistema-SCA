@@ -8,7 +8,7 @@
     <link rel="icon" href="../images/s-icon.png" type="image/x-icon">
     <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tela Inicial</title>
+    <title>Cliente</title>
 </head>
 
 <body>
@@ -20,7 +20,7 @@
             </div>
             <div class="voltar">
                 <a href="../php/tela-inicial.html">
-                    <img src="../images/voltar.png">
+                    <img src="../images/voltar.png">    
                 </a>
                 <a href="../php/tela-inicial.html">
                     <h1 id="teste">Voltar</h1>
@@ -30,15 +30,19 @@
         <main>
             <form action="" method="POST">
                 <label for="nome">Nome</label>
-                <input type="text" name="nome">
+                <input type="text" name="nome" id="nome" onblur="nomecheck(value)">
+                <span id="span-nome"></span>
                 <label for="cpf">CPF</label>
-                <input type="text" name="cpf" maxlength="14" id="cpf">
+                <input type="text" name="cpf" maxlength="14" id="cpf" onblur="cpfcheck(value)">
+                <span id="span-cpf"></span>
                 <label for="endereco">Endereço</label>
                 <input type="text" name="endereco">
                 <label for="telefone">Telefone</label>
-                <input type="text" name="telefone" id="telefone">
+                <input type="text" name="telefone" id="telefone" onblur="telefonecheck(value)">
+                <span id="span-telefone"></span>
                 <label for="data_nasc">Data de nascimento</label>
-                <input type="text" name="data_nasc" id="data_nasc">
+                <input type="text" name="data_nasc" id="data_nasc" onblur="datacheck(value)">
+                <span id="span-data"></span>
                 <div class="btns">
                     <input type="submit" value="Registrar">
                     <button>Cancelar</button>

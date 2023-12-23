@@ -94,6 +94,19 @@ main form input {
     color: white;
 }
 
+main form select {
+    max-width: 300px;
+    min-width: 220px;
+    width: 50%;
+    background-color: #1c3355;
+    border: none;
+    padding: 9px;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    color: white;
+}
+
 .btns {
     margin-top: 10px;
     display: flex;
