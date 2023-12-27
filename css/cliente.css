@@ -107,6 +107,7 @@ main form span {
     flex-wrap: wrap;
     column-gap: 2rem;
     row-gap: 1rem;
+    margin-bottom: 2rem;
 }
 
 .btns input, button {

@@ -13,7 +13,6 @@ $('#cpf').mask('000.000.000-00');
 $('#telefone').mask('(00) 00000-0000');
 $('#data_nasc').mask('00/00/0000');
 
-
 function validarPrimeiroDigito(cpf) {
     let sum = 0;
     for (let i = 0; i < 9; i++) {
@@ -140,7 +139,11 @@ function telefonecheck(telefone) {
       document.getElementById('span-telefone').innerHTML = 'É necessário informar um telefone válido.'
       document.getElementById('span-telefone').style.cssText = 'display: inline;'
       document.getElementById('telefone').style.cssText = 'box-shadow: 0px 0px 1px 2px red;'
-  } else {
+  } else if (telefone.length != 15) {
+      document.getElementById('span-telefone').innerHTML = 'É necessário informar um número completo.'
+      document.getElementById('span-telefone').style.cssText = 'display: inline;'
+      document.getElementById('telefone').style.cssText = 'box-shadow: 0px 0px 1px 2px red;'
+  }else {
       document.getElementById('span-telefone').style.cssText = 'display: none;'
       document.getElementById('telefone').style.cssText = 'box-shadow: none;'
   }
