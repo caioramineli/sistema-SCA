@@ -1,5 +1,5 @@
 function trocarJanela() {
-    location.href = 'tela-inicial.html'
+    location.href = 'tela-inicial.php'
 }
 
 function ErrarSenha(){

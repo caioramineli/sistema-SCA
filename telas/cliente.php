@@ -19,16 +19,16 @@
                 <h1>Cliente</h1>
             </div>
             <div class="voltar">
-                <a href="../php/tela-inicial.html">
+                <a href="../php/tela-inicial.php">
                     <img src="../images/voltar.png">    
                 </a>
-                <a href="../php/tela-inicial.html">
+                <a href="../php/tela-inicial.php">
                     <h1 id="teste">Voltar</h1>
                 </a>
             </div>
         </section>
         <main>
-            <form action="" method="POST">
+            <form action="../processamento/processamento.php" method="POST">
                 <label for="nome">Nome</label>
                 <input type="text" name="nome" id="nome" onblur="nomecheck(value)">
                 <span id="span-nome"></span>
@@ -46,7 +46,7 @@
                 <div class="btns">
                     <input type="submit" value="Registrar">
                     <button>Cancelar</button>
-                    <button><a href="#">Consultar</a></button>
+                    <button><a href="consulta-cliente.php">Consultar</a></button>
                 </div>
             </form>
         </main>

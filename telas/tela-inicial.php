@@ -29,7 +29,7 @@
         </section>
         <main>
             <section class="container-cards">
-                <a href="#">
+                <a href="funcionario.php">
                     <div class="card" onmousemove="mudarCor(0)" onmouseout="desmudarCor(0)">
                         <h1>funcionários</h1>
                         <div class="select">
@@ -53,7 +53,7 @@
                         </div>
                     </div>
                 </a>
-                <a href="cliente.html">
+                <a href="cliente.php">
                     <div class="card" onmousemove="mudarCor(3)" onmouseout="desmudarCor(3)">
                         <h1>clientes</h1>
                         <div class="select">

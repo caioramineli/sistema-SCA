@@ -19,10 +19,10 @@
                 <h1>Funcionário</h1>
             </div>
             <div class="voltar">
-                <a href="../php/tela-inicial.html">
+                <a href="../php/tela-inicial.php">
                     <img src="../images/voltar.png">
                 </a>
-                <a href="../php/tela-inicial.html">
+                <a href="../php/tela-inicial.php">
                     <h1 id="teste">Voltar</h1>
                 </a>
             </div>
