@@ -24,7 +24,6 @@ a {
     flex-direction: column;
     justify-content: space-between;
     min-width: 210px;
-    max-width: 210px;
     height: 100vh;
     background-color: #142847;
     color: white;
@@ -33,20 +32,17 @@ a {
 .aba-lateral .usuario {
     display: flex;
     align-items: center;
-    column-gap: 10px;
+    column-gap: 15px;
     margin-top: 15px;
 }
 
 .aba-lateral .usuario img {
-    width: 50px;
-    margin-left: 15px;
+    width: 55px;
+    margin-left: 20px;
 }
 
 .aba-lateral .usuario h1 {
-    font-size: 1.4rem;
-    overflow: hidden;
-    /* text-overflow: ellipsis; */
-    /* word-wrap:break-word; */
+    font-size: 1.6rem;
 }
 
 .aba-lateral .voltar {
@@ -68,36 +64,24 @@ a {
 main {
     width: 100%;
     margin-left: 210px;
-    margin-top: 1.5rem;
+    margin-top: 2vh;
 }
 
 main form {
     display: flex;
     flex-direction: column;
     margin-left: 10vw;
-    row-gap: 5px;
+    row-gap: 1vh;
 }
 
 main form label {
     color: white;
     font-size: 1.1rem;
     font-weight: bold;
-    margin-top: 1rem;
+    margin-top: 2vh;
 }
 
-main form input {
-    max-width: 300px;
-    min-width: 220px;
-    width: 50%;
-    background-color: #1c3355;
-    border: none;
-    padding: 10px;
-    border-radius: 10px;
-    font-size: 1rem;
-    color: white;
-}
-
-main form select {
+main form input, select {
     max-width: 300px;
     min-width: 220px;
     width: 50%;
@@ -105,6 +89,7 @@ main form select {
     border: none;
     padding: 9px;
     border-radius: 10px;
+    /* margin-bottom: 1rem; */
     font-size: 1rem;
     color: white;
 }
@@ -114,10 +99,15 @@ main form span {
     font-size: 14px;
     margin-left: 3px;
     display: none;
+    margin-bottom: -0.5vh;
 }
 
+main form #span-cpf {
+    display: inline;
+} 
+
 .btns {
-    margin-top: 2rem;
+    margin-top: 3vh;
     display: flex;
     flex-wrap: wrap;
     column-gap: 2rem;
@@ -125,7 +115,7 @@ main form span {
     margin-bottom: 2rem;
 }
 
-.btns input, button {
+.btns a, button {
     background-color: #1335ac;
     border: none;
     max-width: 120px;
@@ -136,9 +126,10 @@ main form span {
     font-size: 1.1rem;
     font-weight: bold;
     margin-bottom: 0px;
+    text-align: center;
 }
 
-.btns input:hover, button:hover {
+.btns a:hover, button:hover {
     background-color: #1334acbd;
     transition: 0.3s;
 }

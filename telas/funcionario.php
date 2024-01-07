@@ -28,32 +28,39 @@
             </div>
         </section>
         <main>
-            <form action="" method="POST">
+            <form id="form" action="" method="POST">
                 <label for="nome">Nome</label>
-                <input type="text" name="nome" id="nome" onblur="nomecheck(value)">
+                <input type="text" name="nome" id="nome" onblur="nomecheck()">
                 <span id="span-nome"></span>
+
                 <label for="cpf">CPF</label>
-                <input type="text" name="cpf" maxlength="14" id="cpf" onblur="cpfcheck(value)">
+                <input type="text" name="cpf" maxlength="14" id="cpf" onblur="cpfcheck()">
                 <span id="span-cpf"></span>
+
                 <label for="salario">Salário</label>
                 <input type="text" name="salario" id="salario">
                 <label for="sexo">Sexo</label>
+
                 <select name="sexo" id="sexo">
                     <option value="Masculuino">Masculino</option>
                     <option value="Feminino">Feminino</option>
                 </select>
+
                 <label for="endereco">Endereço</label>
                 <input type="text" name="endereco">
+
                 <label for="telefone">Telefone</label>
-                <input type="text" name="telefone" id="telefone" onblur="telefonecheck(value)">
+                <input type="text" name="telefone" id="telefone" onblur="telefonecheck()">
                 <span id="span-telefone"></span>
+
                 <label for="data_nasc">Data de nascimento</label>
-                <input type="text" name="data_nasc" id="data_nasc" onblur="datacheck(value)">
+                <input type="text" name="data_nasc" id="data_nasc" onblur="datacheck()">
                 <span id="span-data"></span>
+
                 <div class="btns">
-                    <input type="submit" value="Registrar">
-                    <button>Cancelar</button>
-                    <button><a href="#">Consultar</a></button>
+                    <button name="btn-enviar" type="submit" onclick="Enviar()">Registrar</button>
+                    <button onclick="limparInputs()" id="cancelar">Cancelar</button>
+                    <a href="consulta-funcionario.php">Consultar</a>
                 </div>
             </form>
         </main>

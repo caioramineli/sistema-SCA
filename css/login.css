@@ -87,13 +87,11 @@ main form span {
     width: 26px;
     height: 26px;
     cursor: pointer;
-    background-color:#2d3f5a;
 }
 
 #icone.hide {
     background: url('../images/ocultar.png');
     background-size: cover;
-    background-color:#2d3f5a;
 }
 
 #loading {

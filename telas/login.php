@@ -15,7 +15,7 @@
         <form>
             <h2>Login</h2>
             <input onclick="EsconderSpan()" id="usuario" type="text" placeholder="Usuário">
-            <input onclick="EsconderSpan()" id="senha" type="password" placeholder="Senha">
+            <input onclick="EsconderSpan()" id="senha" type="password" placeholder="Senha" maxlength="26">
             <span id="erro">Usuário ou senha incorretos</span>
             <div id="icone" onclick="TrocarIcone()"></div>
             <input id="entrar" type="submit" value="Entrar" onclick="Logar(); return false"> 

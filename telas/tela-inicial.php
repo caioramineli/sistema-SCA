@@ -19,10 +19,10 @@
                 <h1>Usuário</h1>
             </div>
             <div class="voltar">
-                <a href="../php/login.html">
+                <a href="../telas/login.php">
                     <img src="../images/voltar.png">
                 </a>
-                <a href="../php/login.html">
+                <a href="../telas/login.php">
                     <h1 id="teste">Voltar</h1>
                 </a>
             </div>
