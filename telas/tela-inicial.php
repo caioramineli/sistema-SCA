@@ -45,7 +45,7 @@
                         </div>
                     </div>
                 </a>
-                <a href="#">
+                <a href="fornecedor.php">
                     <div class="card" onmousemove="mudarCor(2)" onmouseout="desmudarCor(2)">
                         <h1>fornecedores</h1>
                         <div class="select">

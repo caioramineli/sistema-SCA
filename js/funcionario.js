@@ -1,5 +1,9 @@
+const form = document.querySelector('#form')
+const inputs = document.getElementsByClassName('inputs')
+const spans = document.getElementsByClassName('spans')
+
 $('#cpf').mask('000.000.000-00');
-$('#salario').mask('0.000,00');
+$('#salario').mask('0.000,00', {reverse: true});
 $('#telefone').mask('(00) 00000-0000');
 $('#data_nasc').mask('00/00/0000');
 
@@ -89,18 +93,14 @@ function validaData(valor) {
   return true
 }
 
-const form = document.querySelector('#form')
-const inputs = document.getElementsByClassName('inputs')
-const spans = document.getElementsByClassName('spans')
-
 function setError(index) {
-inputs[index].style.cssText = 'box-shadow: 0px 0px 1px 2px red;'
-spans[index].style.cssText = 'display: inline;'
+  inputs[index].style.cssText = 'box-shadow: 0px 0px 1px 2px red;'
+  spans[index].style.cssText = 'display: inline;'
 }
 
 function removeError(index) {
-inputs[index].style.cssText = 'box-shadow: none;'
-spans[index].style.cssText = 'display: none;'
+  inputs[index].style.cssText = 'box-shadow: none;'
+  spans[index].style.cssText = 'display: none;'
 }
 
 function nomecheck() {
@@ -129,20 +129,20 @@ function cpfcheck() {
   }
 }
 
-function enderecocheck() {
+function salariocheck() {
   if (inputs[2].value.length === 0) {
-      setError(2) 
-      return false
-  } 
-  else {
-      removeError(2)
-      return true
-  }
+    setError(2) 
+    return false
+} 
+else {
+    removeError(2)
+    return true
+}
 }
 
-function telefonecheck() {
-  if (inputs[3].value.length != 15) {
-      setError(3)
+function enderecocheck() {
+  if (inputs[3].value.length === 0) {
+      setError(3) 
       return false
   } 
   else {
@@ -151,14 +151,25 @@ function telefonecheck() {
   }
 }
 
-function datacheck() {
-  var data = inputs[4].value;
-  const dataValidate = validaData(data)
-  if (dataValidate === false) {
+function telefonecheck() {
+  if (inputs[4].value.length != 15) {
       setError(4)
       return false
-  } else {
+  } 
+  else {
       removeError(4)
+      return true
+  }
+}
+
+function datacheck() {
+  var data = inputs[5].value;
+  const dataValidate = validaData(data)
+  if (dataValidate === false) {
+      setError(5)
+      return false
+  } else {
+      removeError(5)
       return true
   }
 }
@@ -168,10 +179,11 @@ form.addEventListener('submit', (event) => {
   event.preventDefault();
   nomecheck();
   cpfcheck();
+  salariocheck();
   enderecocheck()
   telefonecheck();
   datacheck();
-  if (nomecheck() === true && cpfcheck() === true && telefonecheck() === true && datacheck() === true) {
+  if (nomecheck() === true && cpfcheck() === true && salariocheck() === true && telefonecheck() && enderecocheck() === true && datacheck() === true) {
       form.submit();
   }
 });
@@ -188,9 +200,12 @@ function limparInputs() {
 }
 
 function setSpanCPF() {
-  var texto = document.getElementById('span-cpf').innerHTML
-  if (texto == 'CPF já cadastrado. Escolha outro CPF.' ) {
-    inputs[1].style.cssText = 'box-shadow: 0px 0px 1px 2px red;';
+  const span = form.querySelector("#span-cpf");
+  if (span !== null) {
+    var texto = document.getElementById('span-cpf').innerHTML
+    if (texto == 'CPF já cadastrado. Escolha outro CPF.' ) {
+      inputs[1].style.cssText = 'box-shadow: 0px 0px 1px 2px red;';
+    }
   }
 }
 setSpanCPF();

@@ -19,43 +19,71 @@
                 <h1>Funcionário</h1>
             </div>
             <div class="voltar">
-                <a href="../php/tela-inicial.php">
+                <a href="../telas/tela-inicial.php">
                     <img src="../images/voltar.png">
                 </a>
-                <a href="../php/tela-inicial.php">
+                <a href="../telas/tela-inicial.php">
                     <h1 id="teste">Voltar</h1>
                 </a>
             </div>
         </section>
         <main>
-            <form id="form" action="" method="POST">
+            <form id="form" method="POST">
                 <label for="nome">Nome</label>
-                <input type="text" name="nome" id="nome" onblur="nomecheck()">
-                <span id="span-nome"></span>
+                <input type="text" name="nome" id="nome" class="inputs" onblur="nomecheck()">
+                <span class="spans">O nome deve ter no minímo 3 caracteres.</span>
 
                 <label for="cpf">CPF</label>
-                <input type="text" name="cpf" maxlength="14" id="cpf" onblur="cpfcheck()">
-                <span id="span-cpf"></span>
+                <input type="text" name="cpf" maxlength="14" class="inputs" id="cpf" onblur="cpfcheck(); removeSpanCPF()">
+                <span class="spans">Digite um CPF válido.</span>
+                <?php
+                    session_start();
+                    require "../processamento/funcoesBD.php";
+                    if(!empty($_POST['nome']) && !empty($_POST['cpf']) && !empty($_POST['salario']) && !empty($_POST['sexo']) && !empty($_POST['endereco']) && !empty($_POST['telefone']) && !empty($_POST['data_nasc'])){
+                        $nome = $_POST['nome'];
+                        $cpf = $_POST['cpf'];
+                        $salario = $_POST['salario'];
+                        $salario = preg_replace('/[^0-9]/', '', $salario);    
+                        $salario = bcdiv($salario, 100, 2);
+                        $salario = strtr($salario, '.', '');
+                        $sexo = $_POST['sexo'];
+                        $endereco = $_POST['endereco'];
+                        $telefone = $_POST['telefone'];
+                        $data_nasc = $_POST['data_nasc'];
+                        $data_nasc = implode("-",array_reverse(explode("/",$data_nasc)));
+                        $count_cpf = "SELECT * FROM funcionario WHERE cpf = '$cpf'";
+                        $result = ConectarBD()->query($count_cpf);
 
+                        if ($result->num_rows > 0) {
+                            // Usuário já existe
+                            echo "<span id='span-cpf'>CPF já cadastrado. Escolha outro CPF.</span>";
+                        }
+                        else {
+                            CadastrarFuncionario($nome, $cpf, $salario , $sexo, $endereco, $telefone, $data_nasc);
+                        }
+                    }
+                ?>
                 <label for="salario">Salário</label>
-                <input type="text" name="salario" id="salario">
-                <label for="sexo">Sexo</label>
+                <input type="text" name="salario" id="salario" class="inputs" onblur="salariocheck()">
+                <span class="spans">É necessário informar o salário</span>
 
-                <select name="sexo" id="sexo">
+                <label for="sexo">Sexo</label>
+                <select name="sexo">
                     <option value="Masculuino">Masculino</option>
                     <option value="Feminino">Feminino</option>
                 </select>
 
                 <label for="endereco">Endereço</label>
-                <input type="text" name="endereco">
+                <input type="text" name="endereco" class="inputs">
+                <span class="spans">É necessário informar um endereço.</span>
 
                 <label for="telefone">Telefone</label>
-                <input type="text" name="telefone" id="telefone" onblur="telefonecheck()">
-                <span id="span-telefone"></span>
+                <input type="text" name="telefone" id="telefone" class="inputs" onblur="telefonecheck()">
+                <span class="spans">É necessário informar um número completo.</span>
 
                 <label for="data_nasc">Data de nascimento</label>
-                <input type="text" name="data_nasc" id="data_nasc" onblur="datacheck()">
-                <span id="span-data"></span>
+                <input type="text" name="data_nasc" id="data_nasc" class="inputs" onblur="datacheck()">
+                <span class="spans">É necessário informar uma data válida.</span>
 
                 <div class="btns">
                     <button name="btn-enviar" type="submit" onclick="Enviar()">Registrar</button>

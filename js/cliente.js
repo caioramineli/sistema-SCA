@@ -201,9 +201,12 @@ function limparInputs() {
 }
 
 function setSpanCPF() {
-  var texto = document.getElementById('span-cpf').innerHTML
-  if (texto == 'CPF já cadastrado. Escolha outro CPF.' ) {
-    inputs[1].style.cssText = 'box-shadow: 0px 0px 1px 2px red;';
+  const span = form.querySelector("#span-cpf");
+  if (span !== null) {
+    var texto = document.getElementById('span-cpf').innerHTML
+    if (texto == 'CPF já cadastrado. Escolha outro CPF.' ) {
+      inputs[1].style.cssText = 'box-shadow: 0px 0px 1px 2px red;';
+    }
   }
 }
 setSpanCPF();
