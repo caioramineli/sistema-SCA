@@ -33,10 +33,9 @@
         <section class="container-cliente">
             <?php
             $allCliente = ApresentarCliente();
-            // $data_nasc = implode("/",array_reverse(explode("-",$data_nasc)));
+
             if ($allCliente != null) {
                 while ($mostrar = mysqli_fetch_assoc($allCliente)) {
-                    // $mostrar['data_nasc']  
                     echo "<div class='cliente'>";
                     echo "<h3>" . $mostrar['nome'] . "</h3>";
                     echo "<p> <strong>CPF:</strong> " . $mostrar['cpf'] . "</p>";

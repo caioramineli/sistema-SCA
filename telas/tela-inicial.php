@@ -37,7 +37,7 @@
                         </div>
                     </div>
                 </a>
-                <a href="#">
+                <a href="compra.php">
                     <div class="card" onmousemove="mudarCor(1)" onmouseout="desmudarCor(1)">
                         <h1>compras</h1>
                         <div class="select">
@@ -61,7 +61,7 @@
                         </div>
                     </div>
                 </a>
-                <a href="#">
+                <a href="venda.php">
                     <div class="card" onmousemove="mudarCor(4)" onmouseout="desmudarCor(4)">
                         <h1>vendas</h1>
                         <div class="select">
@@ -69,7 +69,7 @@
                         </div>
                     </div>
                 </a>
-                <a href="#">
+                <a href="produto.php">
                     <div class="card" onmousemove="mudarCor(5)" onmouseout="desmudarCor(5)">
                         <h1>produtos</h1>
                         <div class="select">
@@ -77,7 +77,7 @@
                         </div>
                     </div>
                 </a>
-                <a href="#">
+                <a href="despesa.php">
                     <div class="card" onmousemove="mudarCor(6)" onmouseout="desmudarCor(6)">
                         <h1>despesas</h1>
                         <div class="select">

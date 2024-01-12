@@ -3,43 +3,22 @@
 session_start();
 require "funcoesBD.php";
 
-if(!empty($_POST['nome']) && !empty($_POST['cpf']) && !empty($_POST['endereco']) && !empty($_POST['telefone']) && !empty($_POST['data_nasc'])){
+if(!empty($_POST['nome']) && !empty($_POST['preco']) && !empty($_POST['data_validade'])){
 
     $nome = $_POST['nome'];
-    $cpf = $_POST['cpf'];
+    $preco = $_POST['preco'];
+    $preco = preg_replace('/[^0-9]/', '', $preco);    
+    $preco = bcdiv($preco, 100, 2);
+    $preco = strtr($preco, '.', '');
+    $data_validade = $_POST['data_validade'];
+    $data_validade = implode("-",array_reverse(explode("/",$data_validade)));
+    $estoque = 0;
 
-    // $count_cpf = "SELECT * FROM cliente WHERE cpf = '$cpf'";
-    // $result = ConectarBD()->query($count_cpf);
+    CadastrarProduto($nome, $preco, $data_validade, $estoque);
     
-    // if ($result->num_rows > 0) {
-    //     // Usuário já existe
-    //     header("location: ../telas/cliente.php");
-    //     // echo "Usuário já cadastrado. Escolha outro nome de usuário.";
-    //     // die();
-    // }
-    
-    $endereco = $_POST['endereco'];
-    $telefone = $_POST['telefone'];
-    $data_nasc = $_POST['data_nasc'];
-    //     $result=explode('/', $data_nasc);
-    //     $dia = $result[0]; 
-    //     $mes = $result[1]; 
-    //     $ano = $result[2];
-    // $data_nasc = $ano. '-' .$mes. '-' .$dia;
-    $data_nasc = implode("-",array_reverse(explode("/",$data_nasc)));
-
-    CadastrarCliente($nome, $cpf, $endereco, $telefone, $data_nasc);
-    
-    header("location: ../telas/cliente.php"); #Adicionar caminho para tela referente
+    header("location: ../telas/produto.php"); #Adicionar caminho para tela referente
     die();
-            
-
 }
-
-// else{
-//     // header("location: ../telas/cliente.php");
-//     die();
-// }
 
 
 ?>

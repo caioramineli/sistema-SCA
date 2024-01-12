@@ -85,6 +85,7 @@ main .funcionario {
     background-color: #1c3355;
     border-radius: 10px;
     padding: 8px;
+    border: 2px #389bdd solid;
 }
 
 main .funcionario h3 {

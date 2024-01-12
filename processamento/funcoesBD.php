@@ -45,3 +45,18 @@
         $apresentar = mysqli_query($conexao, $buscar);
         return $apresentar;
     }
+
+    function CadastrarProduto($nome, $preco, $data_validade, $estoque){
+        $conexao = ConectarBD();
+        $inserir = "INSERT INTO produto (nome, preco, data_validade, estoque) VALUES ('$nome', '$preco', '$data_validade', '$estoque');";
+
+        mysqli_query($conexao, $inserir);
+    }
+
+    function ApresentarProduto(){
+        $conexao = ConectarBD();
+        $buscar = "SELECT * FROM produto order by id";
+        $apresentar = mysqli_query($conexao, $buscar);
+        return $apresentar;
+    }
+?>

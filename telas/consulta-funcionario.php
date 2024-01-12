@@ -33,10 +33,8 @@
         <section class="container-funcionario">
             <?php
             $allFuncionario = ApresentarFuncionario();
-            // $data_nasc = implode("/",array_reverse(explode("-",$data_nasc)));
             if ($allFuncionario != null) {
-                while ($mostrar = mysqli_fetch_assoc($allFuncionario)) {
-                    // $mostrar['data_nasc']  
+                while ($mostrar = mysqli_fetch_assoc($allFuncionario)) {  
                     echo "<div class='funcionario'>";
                     echo "<h3>" . $mostrar['nome'] . "</h3>";
                     echo "<p> <strong>CPF:</strong> " . $mostrar['cpf'] . "</p>";

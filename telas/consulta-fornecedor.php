@@ -33,17 +33,15 @@
         <section class="container-fornecedor">
             <?php
             $allFornecedor = ApresentarFornecedor();
-            // $data_nasc = implode("/",array_reverse(explode("-",$data_nasc)));
             if ($allFornecedor != null) {
-                while ($mostrar = mysqli_fetch_assoc($allFornecedor)) {
-                    // $mostrar['data_nasc']  
+                while ($mostrar = mysqli_fetch_assoc($allFornecedor)) {  
                     echo "<div class='fornecedor'>";
-                    echo "<h3>" . $mostrar['nome'] . "</h3>";
-                    echo "<p> <strong>CNPJ:</strong> " . $mostrar['cnpj'] . "</p>";
-                    echo "<p> <strong>Email:</strong> " . $mostrar['email'] . "</p>";
-                    echo "<p> <strong>Endereço:</strong> " . $mostrar['endereco'] . "</p>";
-                    echo "<p> <strong>Telefone:</strong> " . $mostrar['telefone'] . "</p>";
-                    echo "<p> <strong>Prazo de entrega:</strong> " . $mostrar['prazo'] . "</p>";
+                        echo "<h3>" . $mostrar['nome'] . "</h3>";
+                        echo "<p> <strong>CNPJ:</strong> " . $mostrar['cnpj'] . "</p>";
+                        echo "<p> <strong>Email:</strong> " . $mostrar['email'] . "</p>";
+                        echo "<p> <strong>Endereço:</strong> " . $mostrar['endereco'] . "</p>";
+                        echo "<p> <strong>Telefone:</strong> " . $mostrar['telefone'] . "</p>";
+                        echo "<p> <strong>Prazo de entrega:</strong> " . $mostrar['prazo'] . "</p>";
                     echo "</div>";
                 }
             }

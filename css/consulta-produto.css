@@ -32,12 +32,12 @@ a {
 .aba-lateral .usuario {
     display: flex;
     align-items: center;
-    column-gap: 20px;
+    column-gap: 1rem;
     margin-top: 15px;
 }
 
 .aba-lateral .usuario img {
-    width: 55px;
+    width: 50px;
     margin-left: 20px;
 }
 
@@ -67,7 +67,7 @@ main {
     margin-top: 2.5rem;
 }
 
-main .container-cliente {
+main .container-produto {
     display: flex;
     flex-wrap: wrap;
     margin-left: 5vw;
@@ -76,7 +76,7 @@ main .container-cliente {
     margin-bottom: 2rem;
 }
 
-main .cliente {
+main .produto {
     display: flex;
     flex-direction: column;
     row-gap: 4px;
@@ -88,17 +88,16 @@ main .cliente {
     border: 2px #389bdd solid;
 }
 
-main .cliente h3 {
+main .produto h3 {
     text-transform: uppercase;
 }
 
-main .cliente strong {
+main .produto strong {
     font-size: 17px;
 }
 
-main .cliente:hover {
+main .produto:hover {
     scale: 1.04;
     transition: 0.4s;
     background-color: #1e4385;
 }
-

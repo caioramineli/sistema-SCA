@@ -74,7 +74,7 @@
                 </select>
 
                 <label for="endereco">Endereço</label>
-                <input type="text" name="endereco" class="inputs">
+                <input type="text" name="endereco" class="inputs" onblur="enderecocheck()">
                 <span class="spans">É necessário informar um endereço.</span>
 
                 <label for="telefone">Telefone</label>
