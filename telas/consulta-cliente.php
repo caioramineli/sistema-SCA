@@ -30,23 +30,23 @@
             </div>
         </section>
         <main>
-        <section class="container-cliente">
-            <?php
-            $allCliente = ApresentarCliente();
+            <section class="container-cliente">
+                <?php
+                $allCliente = ApresentarCliente();
 
-            if ($allCliente != null) {
-                while ($mostrar = mysqli_fetch_assoc($allCliente)) {
-                    echo "<div class='cliente'>";
-                    echo "<h3>" . $mostrar['nome'] . "</h3>";
-                    echo "<p> <strong>CPF:</strong> " . $mostrar['cpf'] . "</p>";
-                    echo "<p> <strong>Endereço:</strong> " . $mostrar['endereco'] . "</p>";
-                    echo "<p> <strong>Telefone:</strong> " . $mostrar['telefone'] . "</p>";
-                    echo "<p> <strong>Data de nascimento:</strong> " . $mostrar['data_nasc'] = implode("/",array_reverse(explode("-",$mostrar['data_nasc']))) . "</p>";
-                    echo "</div>";
+                if ($allCliente != null) {
+                    while ($mostrar = mysqli_fetch_assoc($allCliente)) {
+                        echo "<div class='cliente'>";
+                        echo "<h3>" . $mostrar['nome'] . "</h3>";
+                        echo "<p> <strong>CPF:</strong> " . $mostrar['cpf'] . "</p>";
+                        echo "<p> <strong>Endereço:</strong> " . $mostrar['endereco'] . "</p>";
+                        echo "<p> <strong>Telefone:</strong> " . $mostrar['telefone'] . "</p>";
+                        echo "<p> <strong>Data de nascimento:</strong> " . $mostrar['data_nasc'] = implode("/",array_reverse(explode("-",$mostrar['data_nasc']))) . "</p>";
+                        echo "</div>";
+                    }
                 }
-            }
-            ?>
-        </section>
+                ?>
+            </section>
         </main>
     </section>
 </body>

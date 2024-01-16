@@ -33,11 +33,11 @@
             <form id="form" method="POST">
                 
                 <label for="nome">Nome</label>
-                <input type="text" name="nome" required class="inputs" onblur="nomecheck()">
+                <input type="text" name="nome" class="inputs" onblur="nomecheck()">
                 <span class="spans">O nome deve ter no minímo 3 caracteres.</span>
 
                 <label for="cpf">CPF</label>
-                <input id="cpf" type="text" name="cpf" required class="inputs" onblur="cpfcheck(); onfocus=removeSpanCPF()">
+                <input id="cpf" type="text" name="cpf" class="inputs" onblur="cpfcheck(); onfocus=removeSpanCPF()">
                 <span class="spans">Digite um CPF válido.</span>
                 <?php
                     session_start();
@@ -63,20 +63,20 @@
                     }
                 ?>
                 <label for="endereco">Endereço</label>
-                <input type="text" name="endereco" required class="inputs" onblur="enderecocheck()">
+                <input type="text" name="endereco" class="inputs" onblur="enderecocheck()">
                 <span class="spans">É necessário informar um endereço.</span>
 
                 <label for="telefone">Telefone</label>
-                <input id="telefone" type="text" name="telefone" required class="inputs" onblur="telefonecheck()">
+                <input id="telefone" type="text" name="telefone" class="inputs" onblur="telefonecheck()">
                 <span class="spans">É necessário informar um número completo.</span>
 
                 <label for="data_nasc">Data de nascimento</label>
-                <input id="data_nasc" type="text" name="data_nasc" required class="inputs" onblur="datacheck()">
+                <input id="data_nasc" type="text" name="data_nasc" class="inputs" onblur="datacheck()">
                 <span class="spans">É necessário informar uma data válida.</span>
 
                 <div class="btns">
                     <button name="btn-enviar" type="submit" onclick="Enviar()">Registrar</button>
-                    <button onclick="limparInputs()" id="cancelar">Cancelar</button>
+                    <button type="reset" onclick="limparInputs()" id="cancelar">Cancelar</button>
                     <a href="consulta-cliente.php">Consultar</a>
                 </div>
             </form>

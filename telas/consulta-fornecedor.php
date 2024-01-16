@@ -30,23 +30,23 @@
             </div>
         </section>
         <main>
-        <section class="container-fornecedor">
-            <?php
-            $allFornecedor = ApresentarFornecedor();
-            if ($allFornecedor != null) {
-                while ($mostrar = mysqli_fetch_assoc($allFornecedor)) {  
-                    echo "<div class='fornecedor'>";
-                        echo "<h3>" . $mostrar['nome'] . "</h3>";
-                        echo "<p> <strong>CNPJ:</strong> " . $mostrar['cnpj'] . "</p>";
-                        echo "<p> <strong>Email:</strong> " . $mostrar['email'] . "</p>";
-                        echo "<p> <strong>Endereço:</strong> " . $mostrar['endereco'] . "</p>";
-                        echo "<p> <strong>Telefone:</strong> " . $mostrar['telefone'] . "</p>";
-                        echo "<p> <strong>Prazo de entrega:</strong> " . $mostrar['prazo'] . "</p>";
-                    echo "</div>";
+            <section class="container-fornecedor">
+                <?php
+                $allFornecedor = ApresentarFornecedor();
+                if ($allFornecedor != null) {
+                    while ($mostrar = mysqli_fetch_assoc($allFornecedor)) {  
+                        echo "<div class='fornecedor'>";
+                            echo "<h3>" . $mostrar['nome'] . "</h3>";
+                            echo "<p> <strong>CNPJ:</strong> " . $mostrar['cnpj'] . "</p>";
+                            echo "<p> <strong>Email:</strong> " . $mostrar['email'] . "</p>";
+                            echo "<p> <strong>Endereço:</strong> " . $mostrar['endereco'] . "</p>";
+                            echo "<p> <strong>Telefone:</strong> " . $mostrar['telefone'] . "</p>";
+                            echo "<p> <strong>Prazo de entrega:</strong> " . $mostrar['prazo'] . "</p>";
+                        echo "</div>";
+                    }
                 }
-            }
-            ?>
-        </section>
+                ?>
+            </section>
         </main>
     </section>
 </body>

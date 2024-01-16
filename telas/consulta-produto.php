@@ -30,22 +30,22 @@
             </div>
         </section>
         <main>
-        <section class="container-produto">
-            <?php
-                $allProdutos = ApresentarProduto();
-                if ($allProdutos != null) {
-                    while ($mostrar = mysqli_fetch_assoc($allProdutos)) {
-                        echo "<div class='produto'>";
-                            echo "<h3>" . $mostrar['nome'] . "</h3>";
-                            echo "<p> <strong>Código:</strong> " . $mostrar['id'] . "</p>";
-                            echo "<p> <strong>Preço:</strong> " . $mostrar['preco'] . "</p>";
-                            echo "<p> <strong>Data de validade:</strong> " . $mostrar['data_validade'] = implode("/",array_reverse(explode("-",$mostrar['data_validade']))) . "</p>";
-                            echo "<p> <strong>Estoque:</strong> " . $mostrar['estoque'] . "</p>";
-                        echo "</div>";
+            <section class="container-produto">
+                <?php
+                    $allProdutos = ApresentarProduto();
+                    if ($allProdutos != null) {
+                        while ($mostrar = mysqli_fetch_assoc($allProdutos)) {
+                            echo "<div class='produto'>";
+                                echo "<h3>" . $mostrar['nome'] . "</h3>";
+                                echo "<p> <strong>Código:</strong> " . $mostrar['id'] . "</p>";
+                                echo "<p> <strong>Preço:</strong> " . 'R$ '. $mostrar['preco'] = number_format($mostrar['preco'], 2 , ",", ".") . "</p>";
+                                echo "<p> <strong>Data de validade:</strong> " . $mostrar['data_validade'] = implode("/",array_reverse(explode("-",$mostrar['data_validade']))) . "</p>";
+                                echo "<p> <strong>Estoque:</strong> " . $mostrar['estoque'] . "</p>";
+                            echo "</div>";
+                        }
                     }
-                }
-            ?>
-        </section>
+                ?>
+            </section>
         </main>
     </section>
 </body>

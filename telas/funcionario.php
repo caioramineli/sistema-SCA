@@ -65,7 +65,7 @@
                 ?>
                 <label for="salario">Salário</label>
                 <input type="text" name="salario" id="salario" class="inputs" onblur="salariocheck()">
-                <span class="spans">É necessário informar o salário</span>
+                <span class="spans">É necessário informar o salário.</span>
 
                 <label for="sexo">Sexo</label>
                 <select name="sexo">
@@ -87,7 +87,7 @@
 
                 <div class="btns">
                     <button name="btn-enviar" type="submit" onclick="Enviar()">Registrar</button>
-                    <button onclick="limparInputs()" id="cancelar">Cancelar</button>
+                    <button type="reset" onclick="limparInputs()" id="cancelar">Cancelar</button>
                     <a href="consulta-funcionario.php">Consultar</a>
                 </div>
             </form>

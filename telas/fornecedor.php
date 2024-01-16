@@ -33,11 +33,11 @@
             <form id="form" method="POST">
                 
                 <label for="nome">Nome</label>
-                <input type="text" name="nome" required class="inputs" onblur="nomecheck()">
+                <input type="text" name="nome" class="inputs" onblur="nomecheck()">
                 <span class="spans">O nome deve ter no minímo 3 caracteres.</span>
 
                 <label for="cnpj">CNPJ</label>
-                <input id="cnpj" type="text" name="cnpj" required class="inputs" onblur="cnpjcheck(); onfocus=removeSpanCNPJ()">
+                <input id="cnpj" type="text" name="cnpj" class="inputs" onblur="cnpjcheck(); onfocus=removeSpanCNPJ()">
                 <span class="spans">Digite um CNPJ válido.</span>
                 <?php
                     session_start();
@@ -65,24 +65,24 @@
                 ?>
 
                 <label for="email">Email</label>
-                <input type="email" name="email" required class="inputs" onblur="emailcheck()">
+                <input type="email" name="email" class="inputs" onblur="emailcheck()">
                 <span class="spans">É necessário informar uma email válido.</span>
 
                 <label for="endereco">Endereço</label>
-                <input type="text" name="endereco" required class="inputs" onblur="enderecocheck()">
+                <input type="text" name="endereco" class="inputs" onblur="enderecocheck()">
                 <span class="spans">É necessário informar um endereço.</span>
 
                 <label for="telefone">Telefone</label>
-                <input id="telefone" type="text" name="telefone" required class="inputs" onblur="telefonecheck()">
+                <input id="telefone" type="text" name="telefone" class="inputs" onblur="telefonecheck()">
                 <span class="spans">É necessário informar um número completo.</span>
 
                 <label for="prazo">Prazo de entrega</label>
-                <input id="prazo" type="text" name="prazo" required class="inputs" onblur="prazocheck()">
+                <input id="prazo" type="text" name="prazo" class="inputs" onblur="prazocheck()">
                 <span class="spans">É necessário informar um prazo.</span>
 
                 <div class="btns">
                     <button name="btn-enviar" type="submit" onclick="Enviar()">Registrar</button>
-                    <button onclick="limparInputs()" id="cancelar">Cancelar</button>
+                    <button type="reset" onclick="limparInputs()" id="cancelar">Cancelar</button>
                     <a href="consulta-fornecedor.php">Consultar</a>
                 </div>
             </form>

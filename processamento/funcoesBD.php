@@ -59,4 +59,19 @@
         $apresentar = mysqli_query($conexao, $buscar);
         return $apresentar;
     }
+
+    function CadastrarCompra($fornecedor, $produto, $quantidade, $valor_total, $data_compra){
+        $conexao = ConectarBD();
+        $inserir = "INSERT INTO compra (fornecedor, produto, quantidade, valor_total, data_compra) VALUES ('$fornecedor', '$produto', '$quantidade', '$valor_total', '$data_compra');";
+        $inserir_estoque = "UPDATE produto SET estoque = estoque + $quantidade WHERE nome = '$produto';";
+        mysqli_query($conexao, $inserir);
+        mysqli_query($conexao, $inserir_estoque);
+    }
+
+    function ApresentarCompra(){
+        $conexao = ConectarBD();
+        $buscar = "SELECT * FROM compra order by id";
+        $apresentar = mysqli_query($conexao, $buscar);
+        return $apresentar;
+    }
 ?>

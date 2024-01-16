@@ -85,6 +85,10 @@ function validaData(valor) {
 
     const diasNoMes = [ 0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 ]
 
+    if (ano > 2024) {
+        return false
+    }
+    
     if (ano % 400 === 0 || ano % 4 === 0 && ano % 100 !== 0) {
         diasNoMes[2] = 29
     }

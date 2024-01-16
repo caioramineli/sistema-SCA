@@ -30,24 +30,24 @@
             </div>
         </section>
         <main>
-        <section class="container-funcionario">
-            <?php
-            $allFuncionario = ApresentarFuncionario();
-            if ($allFuncionario != null) {
-                while ($mostrar = mysqli_fetch_assoc($allFuncionario)) {  
-                    echo "<div class='funcionario'>";
-                    echo "<h3>" . $mostrar['nome'] . "</h3>";
-                    echo "<p> <strong>CPF:</strong> " . $mostrar['cpf'] . "</p>";
-                    echo "<p> <strong>Salário:</strong> " . $mostrar['salario'] = number_format($mostrar['salario'], 2 , ",", ".") . "</p>";
-                    echo "<p> <strong>Sexo:</strong> " . $mostrar['sexo'] . "</p>";
-                    echo "<p> <strong>Endereço:</strong> " . $mostrar['endereco'] . "</p>";
-                    echo "<p> <strong>Telefone:</strong> " . $mostrar['telefone'] . "</p>";
-                    echo "<p> <strong>Data de nascimento:</strong> " . $mostrar['data_nasc'] = implode("/",array_reverse(explode("-",$mostrar['data_nasc']))) . "</p>";
-                    echo "</div>";
+            <section class="container-funcionario">
+                <?php
+                $allFuncionario = ApresentarFuncionario();
+                if ($allFuncionario != null) {
+                    while ($mostrar = mysqli_fetch_assoc($allFuncionario)) {  
+                        echo "<div class='funcionario'>";
+                        echo "<h3>" . $mostrar['nome'] . "</h3>";
+                        echo "<p> <strong>CPF:</strong> " . $mostrar['cpf'] . "</p>";
+                        echo "<p> <strong>Salário:</strong> " . $mostrar['salario'] = number_format($mostrar['salario'], 2 , ",", ".") . "</p>";
+                        echo "<p> <strong>Sexo:</strong> " . $mostrar['sexo'] . "</p>";
+                        echo "<p> <strong>Endereço:</strong> " . $mostrar['endereco'] . "</p>";
+                        echo "<p> <strong>Telefone:</strong> " . $mostrar['telefone'] . "</p>";
+                        echo "<p> <strong>Data de nascimento:</strong> " . $mostrar['data_nasc'] = implode("/",array_reverse(explode("-",$mostrar['data_nasc']))) . "</p>";
+                        echo "</div>";
+                    }
                 }
-            }
-            ?>
-        </section>
+                ?>
+            </section>
         </main>
     </section>
 </body>

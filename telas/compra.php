@@ -1,3 +1,6 @@
+<?php
+    require "../processamento/funcoesBD.php";
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -30,8 +33,50 @@
             </div>
         </section>
         <main>
-            <form id="form" method="POST">
+            <form id="form" method="POST" action="../processamento/processamento.php">
+            
+                <label for="fornecedor">Fornecedor</label>
+                    <select name="fornecedor" class="inputs" onchange="fornecedorcheck()" onblur="fornecedorcheck()">
+                        <option value="">Selecione o fornecedor</option>
+                        <?php
+                        $allFornecedores = ApresentarFornecedor();
+                        if ($allFornecedores != null) {
+                            while ($mostrar = mysqli_fetch_assoc($allFornecedores)) {
+                                echo "<option value='" . $mostrar['nome'] . "'name='fornecedor'>" . $mostrar['nome'] . "</option>";
+                            }
+                        }
+                    ?>
+                </select>
+                <span class="spans">É necessário informar um fornecedor.</span>
 
+                <label for="produto">Produto</label>
+                <select name="produto" class="inputs" onchange="produtocheck(); getPreco()" onblur="produtocheck()">
+                    <option value="">Selecione o produto</option>
+                        <?php
+                        $allProdutos = ApresentarProduto();
+                        if ($allProdutos != null) {
+                            while ($mostrar = mysqli_fetch_assoc($allProdutos)) {
+                                echo "<option value='" . $mostrar['nome'] . "'name='produto'>" . $mostrar['nome'] . ", R$ " . $mostrar['preco'] = number_format($mostrar['preco'], 2, ',', '.') . "</option>";
+                            }
+                        }
+                    ?>
+                </select>
+                <span class="spans">É necessário informar um produto.</span>
+
+                <label id="preco">Preço: </label>
+
+                <label for="quantidade">Quantidade</label>
+                <input type="number" onkeypress="return event.charCode >= 48" min="1" name="quantidade" id="quantidade" class="inputs" oninput="TamInput()" onchange="getPreco(); quantidadecheck()" onkeyup="getPreco()" onblur="quantidadecheck()">
+                <span class="spans">É necessário informar a quantidade.</span>
+
+                <label for="valor_total">Valor Total:</label>
+                <input type="text" name="valor_total" id="valor_total" class="inputs" readonly>
+
+                <div class="btns">
+                    <button name="btn-enviar" type="submit" onclick="Enviar()">Registrar</button>
+                    <button type="reset" onclick="limparInputs()" id="cancelar">Cancelar</button>
+                    <a href="consulta-compra.php">Consultar</a>
+                </div>
             </form>
         </main>
     </section>

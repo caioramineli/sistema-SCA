@@ -1,7 +1,7 @@
 const form = document.querySelector('#form')
 const inputs = document.getElementsByClassName('inputs')
 const spans = document.getElementsByClassName('spans')
-const emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/
+const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 $('#cnpj').mask('00.000.000/0000-00');
 $('#telefone').mask('(00) 00000-0000');
@@ -165,7 +165,7 @@ function setSpanCNPJ() {
         }
     }
 }
-setSpanCPF();
+setSpanCNPJ();
 
 function removeSpanCNPJ() {
     document.getElementById('span-cnpj').style.cssText = 'display: none;';
