@@ -74,4 +74,30 @@
         $apresentar = mysqli_query($conexao, $buscar);
         return $apresentar;
     }
+
+    function CadastrarDespesa($tipo_despesa, $nome, $descricao, $valor, $data_ven, $status){
+        $conexao = ConectarBD();
+        $inserir = "INSERT INTO despesa (tipo_despesa, nome, descricao, valor, data_ven, status) VALUES ('$tipo_despesa', '$nome', '$descricao', '$valor', '$data_ven', '$status');";
+        mysqli_query($conexao, $inserir);
+    }
+
+    function ApresentarDespesa(){
+        $conexao = ConectarBD();
+        $buscar = "SELECT * FROM despesa order by id";
+        $apresentar = mysqli_query($conexao, $buscar);
+        return $apresentar;
+    }
+
+    function ApresentarDespesaPaga(){
+        $conexao = ConectarBD();
+        $buscar = "SELECT * FROM despesa WHERE status = 'Não paga' order by id;";
+        $apresentar = mysqli_query($conexao, $buscar);
+        return $apresentar;
+    }
+
+    function PagarDespesa($id){
+        $conexao = ConectarBD();
+        $atualizar = "UPDATE despesa SET status = 'Paga' WHERE id= '$id';";
+        mysqli_query($conexao, $atualizar);
+    }
 ?>

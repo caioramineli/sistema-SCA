@@ -23,10 +23,10 @@
                 <h1>Compras</h1>
             </div>
             <div class="voltar">
-                <a href="../telas/tela-inicial.php">
+                <a href="../telas/compra.php">
                     <img src="../images/voltar.png">    
                 </a>
-                <a href="../telas/tela-inicial.php">
+                <a href="../telas/compra.php">
                     <h1 id="teste">Voltar</h1>
                 </a>
             </div>
@@ -43,7 +43,7 @@
                             echo "<p> <strong>Produto:</strong> " . $mostrar['produto'] . "</p>";
                             echo "<p> <strong>Quantidade:</strong> " . $mostrar['quantidade'] . "</p>";
                             echo "<p> <strong>Valor total:</strong> " . 'R$ ' . $mostrar['valor_total'] = number_format($mostrar['valor_total'], 2 , ",", ".") . "</p>";
-                            echo "<p> <strong>Data da compra:</strong> " . $mostrar['data_compra'] = implode("/",array_reverse(explode("-",$mostrar['data_compra'])))  . "</p>";
+                            echo "<p> <strong>Data da compra:</strong> " . $mostrar['data_compra'] = implode("/",array_reverse(explode("-",$mostrar['data_compra']))) . "</p>";
                         echo "</div>";
                     }
                 }
