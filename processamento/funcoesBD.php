@@ -100,4 +100,25 @@
         $atualizar = "UPDATE despesa SET status = 'Paga' WHERE id= '$id';";
         mysqli_query($conexao, $atualizar);
     }
+
+    function CadastrarTeste($valor){
+        $conexao = ConectarBD();
+        $inserir = "INSERT INTO teste (valor) VALUES ('$valor');";
+        mysqli_query($conexao, $inserir);
+    }
+
+    function CadastrarVenda($cliente, $fk_cpf, $valor_total, $tipo_pagamento, $data_venda){
+        $conexao = ConectarBD();
+        $inserir = "INSERT INTO venda (cliente, fk_cpf, valor_total, tipo_pagamento, data_venda) VALUES ('$cliente', '$fk_cpf', '$valor_total', '$tipo_pagamento', '$data_venda');";
+        // $inserir_estoque = "UPDATE produto SET estoque = estoque + $quantidade WHERE nome = '$produto';";
+        mysqli_query($conexao, $inserir);
+        // mysqli_query($conexao, $inserir_estoque);
+    }
+
+    function ApresentarVenda(){
+        $conexao = ConectarBD();
+        $buscar = "SELECT * FROM venda order by id";
+        $apresentar = mysqli_query($conexao, $buscar);
+        return $apresentar;
+    }
 ?>

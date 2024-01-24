@@ -32,7 +32,7 @@
             </div>
         </section>
         <main>
-        <section class="container-compras">
+            <section class="container-compras">
                 <?php
                 $allCompras = ApresentarCompra();
                 if ($allCompras != null) {

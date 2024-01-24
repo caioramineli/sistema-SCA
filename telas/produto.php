@@ -46,7 +46,7 @@
 
                 <div class="btns">
                     <button name="btn-enviar" type="submit" onclick="Enviar()">Registrar</button>
-                    <button onclick="limparInputs()" id="cancelar">Cancelar</button>
+                    <button type="reset" onclick="limparInputs()" id="cancelar">Cancelar</button>
                     <a href="consulta-produto.php">Consultar</a>
                 </div>
             </form>

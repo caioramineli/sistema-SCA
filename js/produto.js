@@ -87,15 +87,15 @@ function datacheck() {
 }
 
 function Enviar() {
-  form.addEventListener('submit', (event) => {
-    event.preventDefault();
-    nomecheck();
-    precocheck();
-    datacheck();
-    if (nomecheck() === true && precocheck() === true && datacheck() === true) {
-        form.submit();
-    }
-});
+    form.addEventListener('submit', (event) => {
+        event.preventDefault();
+        nomecheck();
+        precocheck();
+        datacheck();
+        if (nomecheck() === true && precocheck() === true && datacheck() === true) {
+            form.submit();
+        }
+    });
 }
 
 function limparInputs() {

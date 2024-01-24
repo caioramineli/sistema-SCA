@@ -64,4 +64,25 @@ else if(!empty($_POST['tipo_despesa'])) {
     die();
 }
 
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    if (isset($_POST['cliente']) && isset($_POST['fk_cpf']) && isset($_POST['valor_total']) && isset($_POST['tipo_pagamento'])) {
+
+        $cliente = $_POST['cliente'];
+        $fk_cpf = $_POST['fk_cpf'];
+    
+        $valor_total = $_POST['valor_total'];
+        $valor_total = preg_replace('/[^0-9]/', '', $valor_total);    
+        $valor_total = bcdiv($valor_total, 100, 2);
+        $valor_total = strtr($valor_total, '.', '');
+        $tipo_pagamento = $_POST['tipo_pagamento'];
+        $data_venda = date("Y-m-d");
+
+        // echo "Valor recebido no PHP: " . $valor;
+        CadastrarVenda($cliente, $fk_cpf, $valor_total, $tipo_pagamento, $data_venda);
+    } 
+    else {
+        echo 'erro';
+    }
+}
+
 ?>

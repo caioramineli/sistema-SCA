@@ -34,7 +34,7 @@ function produtocheck() {
 }
 
 function quantidadecheck() {
-    if (inputs[2].value.length == '') {
+    if (inputs[2].value.length == '' || inputs[2].value == '0') {
         setError(2)
         return false
     } else {
