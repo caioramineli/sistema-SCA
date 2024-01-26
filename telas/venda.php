@@ -95,13 +95,20 @@
                     </tr>
                 </thead>
                 <tbody>
+                    <tr>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                    </tr>
                 </tbody>
             </table>
             <span class="spans">É necessário adicionar pelo menos um produto para realizar a venda!</span>
 
             <div class="btns">
                 <button type="button" name="btn-adicionar" onclick="adicionarNaTabela()">Adicionar</button>
-                <button type="button" name="btn-enviar" onclick="abrirModal()">Finalizar</button>
+                <button type="button" name="btn-enviar" onclick="abrirModal(); ArmazenarQtd()">Finalizar</button>
                 <button type="reset" onclick="limparInputs()" id="cancelar">Cancelar</button>
                 <a href="consulta-venda.php">Consultar</a>
             </div>
@@ -128,7 +135,7 @@
                     <span class="spans">É necessário informar o tipo de pagamento.</span>
 
                     <div class="btns-modal">
-                        <button name="btn-enviar" type="submit" onclick="Confirmar()">Confirmar</button>
+                        <button name="btn-enviar" type="button" onclick="Confirmar()">Confirmar</button>
                         <button type="reset" onclick="fecharModal()">Cancelar</button>
                     </div>
                 </form>

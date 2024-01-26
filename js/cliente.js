@@ -181,8 +181,6 @@ function datacheck() {
 }
 
 function Enviar() {
-  form.addEventListener('submit', (event) => {
-    event.preventDefault();
     nomecheck();
     cpfcheck();
     enderecocheck()
@@ -191,13 +189,9 @@ function Enviar() {
     if (nomecheck() === true && cpfcheck() === true && telefonecheck() === true && datacheck() === true) {
         form.submit();
     }
-});
 }
 
 function limparInputs() {
-    form.addEventListener('submit', (event) => {
-        event.preventDefault();
-    });
     for (var i = 0; i < inputs.length; i++) {
         inputs[i].value = '';
         removeError(i);

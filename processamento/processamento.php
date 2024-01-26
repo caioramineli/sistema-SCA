@@ -69,7 +69,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         $cliente = $_POST['cliente'];
         $fk_cpf = $_POST['fk_cpf'];
-    
         $valor_total = $_POST['valor_total'];
         $valor_total = preg_replace('/[^0-9]/', '', $valor_total);    
         $valor_total = bcdiv($valor_total, 100, 2);
@@ -80,9 +79,42 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // echo "Valor recebido no PHP: " . $valor;
         CadastrarVenda($cliente, $fk_cpf, $valor_total, $tipo_pagamento, $data_venda);
     } 
-    else {
-        echo 'erro';
-    }
 }
 
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    if (isset($_POST['produtos']) && isset($_POST['quantidades'])) {
+        $conexao = ConectarBD();
+        $dbname = 'sca';
+
+        $produtos = $_POST['produtos'];
+        $vetor_produtos = explode(',', $produtos);
+
+        $quantidades = $_POST['quantidades'];
+        $vetor_quantidades = explode(',', $quantidades);
+
+        
+        print_r($vetor_produtos);
+        echo ' / ';
+        print_r($vetor_quantidades);
+
+        for ($i = 0; $i < count($vetor_produtos); $i++) {
+            $produto = $conexao->real_escape_string($vetor_produtos[$i]);
+            $quantidade = $conexao->real_escape_string($vetor_quantidades[$i]);
+            $query = "SELECT AUTO_INCREMENT FROM information_schema.TABLES WHERE TABLE_SCHEMA = '$dbname' AND TABLE_NAME = 'venda'";
+            $result = $conexao->query($query);
+            $row = $result->fetch_assoc();
+            $cod_venda = $row['AUTO_INCREMENT'];
+            $cod_venda = $cod_venda - 1;
+            echo $cod_venda;
+        
+            $inserir = "INSERT INTO venda_produto (cod_venda, cod_produto, quantidade) VALUES ('$cod_venda', '$produto', '$quantidade')";
+            $subtrair_estoque = "UPDATE produto SET estoque = estoque - $quantidade WHERE id = '$produto';";
+        
+            mysqli_query($conexao, $inserir);
+            mysqli_query($conexao, $subtrair_estoque);
+        }
+    }
+    // $conexao->close();
+}
+        
 ?>

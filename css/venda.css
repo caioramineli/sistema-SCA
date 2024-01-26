@@ -266,6 +266,7 @@ tbody {
     font-weight: bold;
     margin-bottom: 0px;
     text-align: center;
+    cursor: pointer;
 }
 
 .container-modal .btns-modal a:hover button:hover {

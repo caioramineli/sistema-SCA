@@ -127,9 +127,16 @@ main form #span-cpf {
     font-weight: bold;
     margin-bottom: 0px;
     text-align: center;
+    cursor: pointer;
 }
 
 .btns a:hover, button:hover {
     background-color: #1334acbd;
     transition: 0.3s;
+    
+}
+
+#valor_total {
+    cursor:no-drop;
+    outline: 0;
 }

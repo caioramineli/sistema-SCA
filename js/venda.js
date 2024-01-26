@@ -64,6 +64,18 @@ function limparInputs() {
     while (corpoTabela.rows.length > 0) {
         corpoTabela.deleteRow(0);
     }
+    var novaLinha = corpoTabela.insertRow(corpoTabela.rows.length);
+    var row_np = novaLinha.insertCell(0);
+    row_np.innerHTML = '&nbsp';
+    var row_cp = novaLinha.insertCell(1);
+    row_cp.innerHTML = '&nbsp';
+    var row_q = novaLinha.insertCell(2);
+    row_q.innerHTML = '&nbsp';
+    var row_p = novaLinha.insertCell(3);
+    row_p.innerHTML = '&nbsp';
+    var row_vt = novaLinha.insertCell(4);
+    row_vt.innerHTML = '&nbsp';
+
     for (var i = 0; i < inputs.length; i++) {
         removeError(i);
         inputs[i].value = '';
@@ -103,7 +115,6 @@ function verificarTodos(){
     quantidadecheck()
 }
 
-let adicionou = false;
 function adicionarNaTabela() {
     verificarTodos()
     if (clientecheck() === true && produtocheck() === true && quantidadecheck() === true) {
@@ -115,13 +126,18 @@ function adicionarNaTabela() {
 
         var cod_produto = inputs[1].value;
 
-        
         var preco = document.getElementById('preco').textContent;
         var precoReal = preco.slice(preco.indexOf(':') + 2);
 
         var quantidade = inputs[2].value;
         var valor_total = inputs[3].value;
 
+        for (var i = 0; i < tabela.rows.length; i++) {
+            if (tabela.rows[i].cells[0].innerHTML === "&nbsp;") {
+                tabela.deleteRow(i);
+                break;
+            }
+        }
         var tabela_insert = tabela.getElementsByTagName('tbody')[0];
         var novaLinha = tabela_insert.insertRow(tabela_insert.rows.length);
 
@@ -139,8 +155,6 @@ function adicionarNaTabela() {
 
         var row_vt = novaLinha.insertCell(4);
         row_vt.innerHTML = valor_total;
-
-        adicionou = true;
         
         inputs[1].value = "";
         inputs[2].value = "";
@@ -154,18 +168,24 @@ function adicionarNaTabela() {
 }
 
 function abrirModal(){
-    if (clientecheck() === true && tabela.rows.length > 1) {
-        document.getElementById('modal').style.cssText = 'display: block;'
-        document.getElementsByTagName('body')[0].style.cssText = 'overflow: hidden;'
-        var index = inputs[0].selectedIndex;
-        var nome = inputs[0].options[index].text;
-        document.getElementById('cliente_venda').innerHTML = 'Cliente: ' + nome;
-        document.getElementById('cpf').innerHTML = 'CPF: ' + inputs[0].value;
-        document.getElementById('valor_total_venda').innerHTML ='Valor total: R$ ' + somarUltimaColuna();
-    }
-    else {
-        spans[3].style.display = 'inline'
-    }
+    if (clientecheck() === true) {
+        for (var i = 1; i < tabela.rows.length; i++) {
+            if (tabela.rows[i].cells[0].innerHTML != "&nbsp;") {
+                document.getElementById('modal').style.cssText = 'display: block;'
+                document.getElementsByTagName('body')[0].style.cssText = 'overflow: hidden;'
+                var index = inputs[0].selectedIndex;
+                var nome = inputs[0].options[index].text;
+                document.getElementById('cliente_venda').innerHTML = 'Cliente: ' + nome;
+                document.getElementById('cpf').innerHTML = 'CPF: ' + inputs[0].value;
+                console.log(somarUltimaColuna());
+                let valorFormatado = somarUltimaColuna().toLocaleString('pt-br', {minimumFractionDigits: 2});
+                document.getElementById('valor_total_venda').innerHTML ='Valor total: R$ ' + valorFormatado;
+                break;
+            } else {
+                spans[3].style.display = 'inline'
+            }
+        }
+    } 
 }
 
 function fecharModal(){
@@ -179,25 +199,23 @@ function somarUltimaColuna() {
     var soma = 0;
     for (var i = 1; i < tabela.rows.length; i++) {
         var valorCelula = tabela.rows[i].cells[tabela.rows[i].cells.length - 1].innerText;
-        var valorNumerico = parseFloat(valorCelula.replace(/\s|&nbsp;/g, "").replace("R$", "").replace(",", "."));
+        var valorNumerico = parseFloat(valorCelula.replace(/\s|&nbsp;|\.+/g, "").replace("R$", "").replace(",", "."));
         if (!isNaN(valorNumerico)) {
             soma += valorNumerico;
         }
     }
-    return soma.toFixed(2);
+    return soma;
 }
 
-function enviarParaPHP() {
+function enviarDadosVenda() {
     var index = inputs[0].selectedIndex;
     var cliente= inputs[0].options[index].text;
     var fk_cpf = inputs[0].value;
-    var valor_total = somarUltimaColuna();
+    var valor_total = somarUltimaColuna().toFixed(2);
     var tipo_pagamento = inputs[4].value;
 
-    console.log(cliente, fk_cpf, valor_total, tipo_pagamento)
-    // var valor = 'teste';
+    // console.log(cliente, fk_cpf, valor_total, tipo_pagamento)
 
-    // Configurar a requisição Fetch
     fetch('../processamento/processamento.php', {
         method: 'POST',
         headers: {
@@ -217,12 +235,52 @@ function enviarParaPHP() {
     });
 }
 
-function Confirmar() {
-    form.addEventListener('submit', (event) => {
-        event.preventDefault();
-        if (pagamentocheck() === true) {
-            enviarParaPHP()
-            form.submit();
-        }
+function ArmazenarCod() {
+    let produtos = [];
+    for (var i = 1; i < tabela.rows.length; i++) {
+        var valor = tabela.rows[i].cells[1].innerText;
+        produtos.push(valor);
+    }
+    return produtos;
+}
+
+function ArmazenarQtd() {
+    let quantidades = [];
+    for (var i = 1; i < tabela.rows.length; i++) {
+        var valor = tabela.rows[i].cells[3].innerText;
+        quantidades.push(valor);
+    }
+    return quantidades;
+}
+
+function enviarDadosProduto() {
+
+    let produtos = ArmazenarCod();
+    let quantidades = ArmazenarQtd();
+
+    // console.log(cliente, fk_cpf, valor_total, tipo_pagamento)
+
+    fetch('../processamento/processamento.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body:   'produtos=' + encodeURIComponent(produtos) + 
+                '&quantidades=' + encodeURIComponent(quantidades) ,
+    })
+    .then(response => response.text())
+    .then(data => {
+        console.log(data);
+    })
+    .catch(error => {
+        console.error(error);
     });
+}
+
+function Confirmar() {
+    if (pagamentocheck() === true) {
+        enviarDadosVenda();
+        enviarDadosProduto()
+        form.submit();
+    }
 }
