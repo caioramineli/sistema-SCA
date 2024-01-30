@@ -73,7 +73,7 @@
                 <input type="text" name="valor_total" id="valor_total" class="inputs" readonly>
 
                 <div class="btns">
-                    <button name="btn-enviar" type="submit" onclick="Enviar()">Registrar</button>
+                    <button name="btn-enviar" type="button" onclick="Enviar()">Registrar</button>
                     <button type="reset" onclick="limparInputs()" id="cancelar">Cancelar</button>
                     <a href="consulta-compra.php">Consultar</a>
                 </div>

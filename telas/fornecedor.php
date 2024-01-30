@@ -81,7 +81,7 @@
                 <span class="spans">É necessário informar um prazo.</span>
 
                 <div class="btns">
-                    <button name="btn-enviar" type="submit" onclick="Enviar()">Registrar</button>
+                    <button name="btn-enviar" type="button" onclick="Enviar()">Registrar</button>
                     <button type="reset" onclick="limparInputs()" id="cancelar">Cancelar</button>
                     <a href="consulta-fornecedor.php">Consultar</a>
                 </div>

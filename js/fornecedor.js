@@ -132,24 +132,19 @@ function prazocheck() {
 }
 
 function Enviar() {
-    form.addEventListener('submit', (event) => {
-        event.preventDefault();
-        nomecheck();
-        cnpjcheck();
-        emailcheck();
-        enderecocheck()
-        telefonecheck();
-        prazocheck();
-        if (nomecheck() === true && cnpjcheck() === true && emailcheck() === true && telefonecheck() && enderecocheck() === true && prazocheck() === true) {
-            form.submit();
-        }
-    });
+    nomecheck();
+    cnpjcheck();
+    emailcheck();
+    enderecocheck()
+    telefonecheck();
+    prazocheck();
+    if (nomecheck() === true && cnpjcheck() === true && emailcheck() === true && telefonecheck() && enderecocheck() === true && prazocheck() === true) {
+        form.submit();
+    }
+
 }
 
 function limparInputs() {
-    form.addEventListener('submit', (event) => {
-        event.preventDefault();
-    });
     for (var i = 0; i < inputs.length; i++) {
         inputs[i].value = '';
         removeError(i);

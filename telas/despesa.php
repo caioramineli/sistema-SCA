@@ -56,7 +56,7 @@
                 <span class="spans">É necessário informar uma data válida.</span>
 
                 <div class="btns">
-                    <button name="btn-enviar" type="submit" onclick="Enviar()">Registrar</button>
+                    <button name="btn-enviar" type="button" onclick="Enviar()">Registrar</button>
                     <button type="reset" onclick="limparInputs()" id="cancelar">Cancelar</button>
                     <a href="consulta-despesa.php">Consultar</a>
                     <!-- <a href="consulta-cliente.php">Pagar Despesas</a> -->

@@ -179,8 +179,6 @@ function datacheck() {
 }
 
 function Enviar() {
-form.addEventListener('submit', (event) => {
-  event.preventDefault();
   nomecheck();
   cpfcheck();
   salariocheck();
@@ -190,13 +188,9 @@ form.addEventListener('submit', (event) => {
   if (nomecheck() === true && cpfcheck() === true && salariocheck() === true && telefonecheck() && enderecocheck() === true && datacheck() === true) {
       form.submit();
   }
-});
 }
 
 function limparInputs() {
-  form.addEventListener('submit', (event) => {
-      event.preventDefault();
-  });
   for (var i = 0; i < inputs.length; i++) {
       inputs[i].value = '';
       removeError(i);
@@ -215,5 +209,5 @@ function setSpanCPF() {
 setSpanCPF();
 
 function removeSpanCPF() {
-  document.getElementById('span-cpf').style.cssText = 'display: none;'
+    document.getElementById('span-cpf').style.cssText = 'display: none;'
 }

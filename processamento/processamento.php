@@ -2,6 +2,7 @@
 
 session_start();
 require "funcoesBD.php";
+date_default_timezone_set('America/Sao_Paulo');
 
 if(!empty($_POST['nome']) && !empty($_POST['preco']) && !empty($_POST['data_validade'])){
 

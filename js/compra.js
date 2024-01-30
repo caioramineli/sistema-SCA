@@ -44,21 +44,15 @@ function quantidadecheck() {
 }
 
 function Enviar() {
-  form.addEventListener('submit', (event) => {
-    event.preventDefault();
     fornecedorcheck()
     produtocheck()
     quantidadecheck()
     if (fornecedorcheck() === true && produtocheck() === true && quantidadecheck() === true) {
         form.submit();
     }
-});
 }
 
 function limparInputs() {
-    form.addEventListener('submit', (event) => {
-        event.preventDefault();
-    });
     for (var i = 0; i < inputs.length; i++) {
         removeError(i);
         inputs[i].value = '';

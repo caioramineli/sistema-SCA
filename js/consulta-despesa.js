@@ -29,8 +29,21 @@ function setVencimentoSeteDias(id) {
 
 const situacao = document.getElementsByClassName('situacao')
 const data_ven = document.getElementsByClassName('data')
+
+
+
+var dataFutura = new Date();
+dataFutura.setHours(0,0,0,0);
+dataAtual.setHours(0,0,0,0);
+var hoje = dataAtual.setDate(dataAtual.getDate())
+var sete = dataFutura.setDate(dataAtual.getDate() + 7)
+
+
 for (let i = 0; i < situacao.length; i++) {
     let data_formatada = formatarData(data_ven[i].innerHTML)
+    var data_d = new Date(data_formatada)
+    data_d.setHours(0,0,0,0);
+    var data_Despesa = data_d.setDate(data_d.getDate() + 1);
     if (situacao[i].textContent == "Paga"){
         situacao[i].style.color = 'green'
     }
@@ -45,22 +58,21 @@ for (let i = 0; i < situacao.length; i++) {
             }
         }
 
-        var dataFutura = new Date();
-        dataFutura.setHours(0,0,0,0);
-        dataAtual.setHours(0,0,0,0);
-        var data_Despesa = new Date(data_formatada)
-        data_Despesa.setHours(0,0,0,0);
-        var sete = dataFutura.setDate(dataAtual.getDate() + 7)
+        console.log(data_Despesa  + ' indice: ' + i);
+        console.log(sete);
+        console.log(hoje);
 
-        if (data_Despesa.setDate(data_Despesa.getDate() + 1) === sete) {
+
+        if (data_Despesa === sete) {
             situacao[i].textContent = 'Não paga, Faltam 7 dias!'
             situacao[i].style.color = 'red'
         }
-        else if (data_Despesa.setDate(data_Despesa.getDate()) === dataFutura.setDate(dataAtual.getDate())) {
+        
+        else if (data_Despesa == hoje) {
             situacao[i].textContent = 'Não paga, Vence Hoje!'
             situacao[i].style.color = 'red'
         } 
-        else if (data_Despesa.setDate(data_Despesa.getDate()) < sete && data_Despesa.setDate(data_Despesa.getDate()) > dataFutura.setDate(dataAtual.getDate())) {
+        else if (data_Despesa < sete && data_Despesa > hoje) {
             setVencimentoSeteDias(i)
         }
     }

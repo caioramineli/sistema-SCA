@@ -147,6 +147,7 @@ main .despesa:hover {
     padding: 4px; 
     color: white;
     width: 25px;
+    cursor: pointer;
 }
 
 .container-modal #fechar-modal:hover {
@@ -190,6 +191,10 @@ main .despesa:hover {
     /* margin-bottom: 1rem; */
     font-size: 1rem;
     color: white;
+    cursor: pointer;
+}
+.container-modal form option:hover {
+    cursor: pointer;
 }
 
 main form span {
@@ -221,6 +226,7 @@ main form span {
     font-weight: bold;
     margin-bottom: 0px;
     text-align: center;
+    cursor: pointer;
 }
 
 .btns a:hover, button:hover {

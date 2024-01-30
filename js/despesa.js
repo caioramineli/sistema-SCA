@@ -107,8 +107,6 @@ function datacheck() {
 }
 
 function Enviar() {
-  form.addEventListener('submit', (event) => {
-    event.preventDefault();
     tipocheck();
     nomecheck();
     descricaocheck();
@@ -117,13 +115,9 @@ function Enviar() {
     if (tipocheck() === true && nomecheck() === true && descricaocheck() === true && valorcheck() === true &&  datacheck() === true) {
         form.submit();
     }
-});
 }
 
 function limparInputs() {
-    form.addEventListener('submit', (event) => {
-        event.preventDefault();
-    });
     for (var i = 0; i < inputs.length; i++) {
         inputs[i].value = '';
         removeError(i);

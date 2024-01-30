@@ -87,21 +87,16 @@ function datacheck() {
 }
 
 function Enviar() {
-    form.addEventListener('submit', (event) => {
-        event.preventDefault();
-        nomecheck();
-        precocheck();
-        datacheck();
-        if (nomecheck() === true && precocheck() === true && datacheck() === true) {
-            form.submit();
-        }
-    });
+    nomecheck();
+    precocheck();
+    datacheck();
+    if (nomecheck() === true && precocheck() === true && datacheck() === true) {
+        form.submit();
+    }
+
 }
 
 function limparInputs() {
-    form.addEventListener('submit', (event) => {
-        event.preventDefault();
-    });
     for (var i = 0; i < inputs.length; i++) {
         inputs[i].value = '';
         removeError(i);

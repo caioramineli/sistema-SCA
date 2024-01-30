@@ -41,9 +41,9 @@ function validarRepetido(cpf) {
     const primeiro = cpf[0];
     let diferente = false;
     for (let i = 1; i < cpf.length; i++) {
-      if (cpf[i] != primeiro) {
-        diferente = true;
-      }
+        if (cpf[i] != primeiro) {
+          diferente = true;
+        }
     }
     return diferente;
 }
@@ -66,17 +66,17 @@ function validarCpf(cpf) {
 
 function validaData(valor) {
     if (typeof valor !== 'string') {
-      return false
+        return false
     }
     if (!/^\d{2}\/\d{2}\/\d{4}$/.test(valor)) {
-      return false
+        return false
     }
 
     const partesData = valor.split('/')
     const data = { 
-      dia: partesData[0], 
-      mes: partesData[1], 
-      ano: partesData[2] 
+        dia: partesData[0], 
+        mes: partesData[1], 
+        ano: partesData[2] 
     }
 
     const dia = parseInt(data.dia)
@@ -111,13 +111,13 @@ const inputs = document.getElementsByClassName('inputs')
 const spans = document.getElementsByClassName('spans')
 
 function setError(index) {
-  inputs[index].style.cssText = 'box-shadow: 0px 0px 1px 2px red;'
-  spans[index].style.cssText = 'display: inline;'
+    inputs[index].style.cssText = 'box-shadow: 0px 0px 1px 2px red;'
+    spans[index].style.cssText = 'display: inline;'
 }
 
 function removeError(index) {
-  inputs[index].style.cssText = 'box-shadow: none;'
-  spans[index].style.cssText = 'display: none;'
+    inputs[index].style.cssText = 'box-shadow: none;'
+    spans[index].style.cssText = 'display: none;'
 }
 
 function nomecheck() {

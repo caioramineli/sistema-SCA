@@ -187,6 +187,7 @@ tbody {
     padding: 4px; 
     color: white;
     width: 25px;
+    cursor: pointer;
 }
 
 .container-modal #fechar-modal:hover {
@@ -235,6 +236,10 @@ tbody {
     color: white;
 }
 
+.container-modal form select {
+    cursor: pointer;
+}
+
 .container-modal form span {
     position: absolute;
     top: 310px;
@@ -274,7 +279,7 @@ tbody {
     transition: 0.3s;
 }
 
-main form #valor_total_input, #cliente_venda {
+main form #valor_total_input {
     cursor:no-drop;
     outline: 0;
 }
